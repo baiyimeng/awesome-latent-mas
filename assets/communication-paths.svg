@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="664" viewBox="0 0 1160 664" role="img" aria-labelledby="title desc">
+  <title id="title">Three paths to latent communication</title>
+  <desc id="desc">Context encoding transfers states formed when reading existing inputs. Text generation transfers states accompanying discrete token generation. Direct latent generation creates continuous messages through rollout or a parallel writer. The carrier, including KV, is independent of the message source.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#172033}
+      .title{font-size:29px;font-weight:700}
+      .sub{font-size:17px;fill:#526078}
+      .category{font-size:19px;font-weight:700}
+      .label{font-size:17px;font-weight:600;text-anchor:middle}
+      .small{font-size:15px;fill:#526078}
+      .eyebrow{font-size:12px;letter-spacing:1.4px;font-weight:700;fill:#526078}
+      .node{fill:#fff;stroke:#cbd5e1;stroke-width:1.2}
+      .flow{stroke:#64748b;stroke-width:1.6;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1160" height="664" rx="20" fill="#fff"/>
+  <text x="32" y="47" class="title">Classify the source of the state, not its carrier.</text>
+  <text x="32" y="79" class="sub">Three inference-time paths from a sender to a receiving agent</text>
+  <text x="250" y="116" class="eyebrow">SENDER</text>
+  <text x="636" y="116" class="eyebrow">TRANSFERRED STATE</text>
+  <text x="868" y="116" class="eyebrow">RECEIVER</text>
+
+  <rect x="24" y="132" width="1112" height="144" rx="14" fill="#eff6ff" stroke="#cbdffb"/>
+  <text x="44" y="166" class="eyebrow" style="fill:#2563eb">01</text>
+  <text x="44" y="196" class="category">Context-Encoding</text>
+  <text x="44" y="221" class="category">State Transfer</text>
+  <rect x="250" y="166" width="100" height="60" rx="9" class="node"/>
+  <text x="300" y="191" class="label">Existing</text><text x="300" y="213" class="label">input</text>
+  <path d="M 357 196 H 378" class="flow"/>
+  <rect x="390" y="166" width="200" height="60" rx="9" class="node"/>
+  <text x="490" y="191" class="label">Read the context</text><text x="490" y="213" class="small" text-anchor="middle">no new message rollout</text>
+  <path d="M 597 196 H 622" class="flow"/>
+  <rect x="634" y="166" width="190" height="60" rx="9" fill="#dbeafe" stroke="#93b7ee"/>
+  <text x="729" y="191" class="label">Encoded states</text><text x="729" y="213" class="small" text-anchor="middle">e.g. prompt-derived KV</text>
+  <path d="M 831 196 H 856" class="flow"/>
+  <rect x="868" y="166" width="236" height="60" rx="9" class="node"/>
+  <text x="986" y="201" class="label">Consume / align / reuse</text>
+  <text x="250" y="254" class="small">Examples: C2C · selective KVComm · activation communication</text>
+
+  <rect x="24" y="292" width="1112" height="144" rx="14" fill="#fff7ed" stroke="#f4d9b8"/>
+  <text x="44" y="326" class="eyebrow" style="fill:#b45309">02</text>
+  <text x="44" y="356" class="category">Text-Generation</text>
+  <text x="44" y="381" class="category">State Transfer</text>
+  <rect x="250" y="326" width="100" height="60" rx="9" class="node"/>
+  <text x="300" y="351" class="label">Existing</text><text x="300" y="373" class="label">input</text>
+  <path d="M 357 356 H 378" class="flow"/>
+  <rect x="390" y="326" width="200" height="60" rx="9" class="node"/>
+  <text x="490" y="351" class="label">Generate tokens</text><text x="490" y="373" class="small" text-anchor="middle">discrete plan / reply</text>
+  <path d="M 597 356 H 622" class="flow"/>
+  <rect x="634" y="326" width="190" height="60" rx="9" fill="#ffedd5" stroke="#eac191"/>
+  <text x="729" y="351" class="label">Trajectory states</text><text x="729" y="373" class="small" text-anchor="middle">hidden, deltas or KV</text>
+  <path d="M 831 356 H 856" class="flow"/>
+  <rect x="868" y="326" width="236" height="60" rx="9" class="node"/>
+  <text x="986" y="361" class="label">Consume / align / reuse</text>
+  <text x="250" y="414" class="small">Examples: SDE · Agent Primitives · RelayCaching</text>
+
+  <rect x="24" y="452" width="1112" height="144" rx="14" fill="#f0fdfa" stroke="#bce6dc"/>
+  <text x="44" y="486" class="eyebrow" style="fill:#0f766e">03</text>
+  <text x="44" y="516" class="category">Direct Latent-</text>
+  <text x="44" y="541" class="category">Message Generation</text>
+  <rect x="250" y="486" width="100" height="60" rx="9" class="node"/>
+  <text x="300" y="511" class="label">Existing</text><text x="300" y="533" class="label">input</text>
+  <path d="M 357 516 H 378" class="flow"/>
+  <rect x="390" y="486" width="200" height="60" rx="9" class="node"/>
+  <text x="490" y="511" class="label">Generate latents</text><text x="490" y="533" class="small" text-anchor="middle">rollout or parallel writer</text>
+  <path d="M 597 516 H 622" class="flow"/>
+  <rect x="634" y="486" width="190" height="60" rx="9" fill="#ccfbf1" stroke="#83c9b7"/>
+  <text x="729" y="511" class="label">New latent states</text><text x="729" y="533" class="small" text-anchor="middle">vectors or continuation KV</text>
+  <path d="M 831 516 H 856" class="flow"/>
+  <rect x="868" y="486" width="236" height="60" rx="9" class="node"/>
+  <text x="986" y="521" class="label">Consume / align / reuse</text>
+  <text x="250" y="574" class="small">Examples: LatentMAS · RecursiveMAS · HyLaT · Thought Blocks</text>
+
+  <text x="32" y="631" class="small">Independent attributes: carrier · accompanying text · model compatibility · training</text>
+  <text x="1126" y="631" class="small" text-anchor="end" style="font-weight:700;fill:#172033">All three paths can use KV.</text>
+</svg>

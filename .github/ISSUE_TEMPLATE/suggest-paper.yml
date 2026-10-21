@@ -1,0 +1,43 @@
+name: Suggest a paper
+description: Propose a paper on latent reasoning or communication in multi-agent systems.
+title: "Add: "
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Paper title
+    validations:
+      required: true
+  - type: input
+    id: paper
+    attributes:
+      label: Paper URL
+      description: Prefer arXiv, proceedings, or an official project page.
+    validations:
+      required: true
+  - type: textarea
+    id: mechanism
+    attributes:
+      label: Multi-agent setup and latent mechanism
+      description: Identify the agents, explain where latent representations are used, and link the method section or implementation.
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Proposed category
+      options:
+        - Context-Encoding State Transfer
+        - Text-Generation State Transfer
+        - Direct Latent-Message Generation
+        - Agent-local latent reasoning with text communication
+        - Analysis and Safety
+        - Application Studies — state origin not established
+        - Multiple variants — explain above
+    validations:
+      required: true
+  - type: textarea
+    id: metadata
+    attributes:
+      label: Date, venue, code, and evidence
+      description: Include the arXiv v1 date and verified acceptance or implementation links, if available.

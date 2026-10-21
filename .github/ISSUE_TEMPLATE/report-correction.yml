@@ -1,0 +1,24 @@
+name: Report a correction
+description: Correct a classification, date, venue, description, or link.
+title: "Correct: "
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Paper or section
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+      description: Explain what should change and why.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting source
+      description: Link the relevant paper section, official repository, or publication record.
+    validations:
+      required: true

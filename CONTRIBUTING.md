@@ -15,7 +15,7 @@ Analysis, negative results and safety studies are welcome when they directly inv
 
 ## Choose a category
 
-All papers sit under **Papers**. **Communication Methods** contains the three state-origin categories below; **Analysis and Safety** and **Application Studies** are sibling sections within Papers.
+All papers sit under **Papers**. **Communication Methods** contains the three state-origin categories below; **Analysis and Safety** is a sibling section within Papers. Application domains are described within entries.
 
 Classify the **inference-time source of the communicated states**, not the title, carrier, training target, or claimed speedup:
 
@@ -23,9 +23,9 @@ Classify the **inference-time source of the communicated states**, not the title
 - **Text-Generation State Transfer:** exposes states from discrete plan or reply generation, including decoding-to-prefill KV reuse. Discrete diffusion is a token-generation process; identify it explicitly.
 - **Direct Latent-Message Generation:** produces continuous positions or dedicated continuation blocks without first producing the corresponding text. Include autoregressive latent rollout and parallel state writers.
 
-A method can have more than one variant. Give the paper one full entry under its primary described mechanism and add a short cross-reference for another verified variant. Count publications once. A prompt-plus-latent KV cache belongs with direct generation when the new latent positions are the defining contribution. Compressing existing input states alone remains context encoding.
+A method can have more than one variant. Give the paper one full entry under its primary described mechanism and explain the other variants in that entry. Count publications once. A prompt-plus-latent KV cache belongs with direct generation when the new latent positions are the defining contribution. Compressing existing input states alone remains context encoding.
 
-“KV”, “hidden”, “hybrid”, “heterogeneous”, “training-free”, “compression”, and “cache reuse” are attributes, not interchangeable categories. Use **Application Studies** only for a verified multi-agent latent system whose accessible primary source does not establish its state-generation path; explicitly state the evidence limit rather than guessing. Analysis and safety papers have their own section.
+“KV”, “hidden”, “hybrid”, “heterogeneous”, “training-free”, “compression”, and “cache reuse” are attributes. Place domain-specific systems by their communication mechanism. When a primary source confirms a multi-agent latent interface but leaves its state-generation path unresolved, keep a concise entry directly under **Communication Methods** and state that limitation within the entry.
 
 ## Add an entry
 

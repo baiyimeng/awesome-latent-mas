@@ -32,7 +32,7 @@ body:
         - Direct Latent-Message Generation
         - Agent-local latent reasoning with text communication
         - Analysis and Safety
-        - Application Studies — state origin not established
+        - Communication Methods — state origin not established
         - Multiple variants — explain above
     validations:
       required: true

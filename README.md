@@ -16,7 +16,6 @@ A curated collection of research on **latent reasoning and state-based communica
     - [Text-Generation State Transfer](#text-generation-state-transfer)
     - [Direct Latent-Message Generation](#direct-latent-message-generation)
   - [Analysis and Safety](#analysis-and-safety)
-  - [Application Studies](#application-studies)
 - [Related Lists](#related-lists)
 
 ## Scope
@@ -54,6 +53,11 @@ Code links point to identified implementations. Unofficial or reference implemen
 ### Communication Methods
 
 Communication methods are grouped by how the transmitted states are produced at inference time.
+
+- **[LaMAR: Latent Multi-agent Collaboration via KV-Cache Communication for Automated Program Repair](https://doi.org/10.1145/3832783.3837423)** — **LaMAR**.<br>
+  `2026-10 (proceedings)` · [ASE 2026 Research Papers](https://conf.researchr.org/details/ase-2026/ase-2026-research-track/127/LaMAR-Latent-Multi-agent-Collaboration-via-KV-Cache-Communication-for-Automated-Prog).<br>
+  Connects bug-analysis and repair chains through direct KV-state transfer, with optional iterative refinement. The public abstract confirms the communication interface; its state-generation path remains unverified.<br>
+  <sub>KV · Bug-analysis and repair chains</sub>
 
 #### Context-Encoding State Transfer
 
@@ -140,7 +144,7 @@ The sender follows a discrete generation process, but another agent consumes sta
 
 - **[Enabling Agents to Communicate Entirely in Latent Space](https://arxiv.org/abs/2511.09149)** — **Interlat**.<br>
   `2025-11-12` · ACL 2026 · [Code](https://github.com/XiaoDu-flying/Interlat).<br>
-  The base protocol sends hidden states collected while a reasoning agent generates a plan. Its separately trained compressed sender generates continuous latents directly; see the [cross-reference below](#direct-latent-message-generation).<br>
+  Passes plan-generation hidden states to an actor through a trained adapter; the compressed variant in Section 4 instead generates a short continuous latent message directly.<br>
   <sub>Hidden → input embeddings · Trained interface / models</sub>
 
 - **[Thought Communication in Multiagent Collaboration](https://arxiv.org/abs/2510.20733)** — **ThoughtComm**.<br>
@@ -212,8 +216,6 @@ The sender constructs new continuous messages instead of first producing their d
   Replaces single-token sampling with probability-weighted embeddings, feeding the continuous vectors back into generation and exchanging them during multi-agent debate.<br>
   <sub>Soft embeddings · Training-free</sub>
 
-**Also see [Interlat](https://arxiv.org/abs/2511.09149), Section 4:** its compressed sender generates continuous latent messages directly, while the base protocol is listed under text-generation state transfer. This is one paper with two variants, not two publications.
-
 ### Analysis and Safety
 
 Audits, interpretability and safety studies of latent multi-agent interaction.
@@ -237,15 +239,6 @@ Audits, interpretability and safety studies of latent multi-agent interaction.
   `2026-07-29` · arXiv.<br>
   Uses controlled message substitutions to separate the effect of receiving a message, its example-specific content, and the contribution of another agent.<br>
   <sub>Causal audit</sub>
-
-### Application Studies
-
-The following system has a confirmed multi-agent latent interface, but its accessible conference description does not establish the state-generation path well enough to assign one of the three categories.
-
-- **[LaMAR: Latent Multi-agent Collaboration via KV-Cache Communication for Automated Program Repair](https://doi.org/10.1145/3832783.3837423)** — **LaMAR**.<br>
-  `2026-10 (proceedings)` · [ASE 2026 Research Papers](https://conf.researchr.org/details/ase-2026/ase-2026-research-track/127/LaMAR-Latent-Multi-agent-Collaboration-via-KV-Cache-Communication-for-Automated-Prog).<br>
-  Connects bug-analysis and repair chains through latent KV communication, with optional iterative repair. The public abstract confirms the interface, but does not establish continuous rollout versus token-associated KV or the training setup.<br>
-  <sub>KV · Automated program repair · State origin not classified</sub>
 
 ## Related Lists
 

@@ -54,11 +54,6 @@ Code links point to identified implementations. Unofficial or reference implemen
 
 Communication methods are grouped by how the transmitted states are produced at inference time.
 
-- **[LaMAR: Latent Multi-agent Collaboration via KV-Cache Communication for Automated Program Repair](https://doi.org/10.1145/3832783.3837423)** — **LaMAR**.<br>
-  `2026-10 (proceedings)` · [ASE 2026 Research Papers](https://conf.researchr.org/details/ase-2026/ase-2026-research-track/127/LaMAR-Latent-Multi-agent-Collaboration-via-KV-Cache-Communication-for-Automated-Prog).<br>
-  Connects bug-analysis and repair chains through direct KV-state transfer, with optional iterative refinement. The public abstract confirms the communication interface; its state-generation path remains unverified.<br>
-  <sub>KV · Bug-analysis and repair chains</sub>
-
 #### Context-Encoding State Transfer
 
 The sender exposes representations formed while processing available context. This includes semantic transfer and shared-context computation reuse; neither requires a new intermediate reasoning message.
@@ -175,6 +170,11 @@ The sender constructs new continuous messages instead of first producing their d
   `2026-07 (proceedings)` · [ACL 2026 Findings](https://aclanthology.org/2026.findings-acl.669/) · [Code](https://github.com/xxy33/condenseflow).<br>
   Compresses accumulated KV from latent collaboration with learnable semantic probes, bounding the size of the message transferred between agents.<br>
   <sub>KV compression · Trained probes</sub>
+
+- **[LaMAR: Latent Multi-agent Collaboration via KV-Cache Communication for Automated Program Repair](https://doi.org/10.1145/3832783.3837423)** — **LaMAR**.<br>
+  `2026-06-18 (accepted)` · [ASE 2026 Research Papers](https://conf.researchr.org/details/ase-2026/ase-2026-research-track/127/LaMAR-Latent-Multi-agent-Collaboration-via-KV-Cache-Communication-for-Automated-Prog).<br>
+  Generates continuous latent states through hidden-state feedback and transfers the resulting KV within bug-analysis and repair chains. A text report bridges the chains by default, with direct KV transfer as an alternative (Definition 3.2; Sections 4.2–4.3).<br>
+  <sub>KV + text bridge · Same model · Continuous latent steps</sub>
 
 - **[LatentDx: Latent Multi-Agent Communication for Cross-Hospital Rare-Disease Diagnosis](https://arxiv.org/abs/2606.13945)** — **LatentDx**.<br>
   `2026-06-11` · arXiv · [Code](https://github.com/AlexandreWANG915/LatentDx).<br>

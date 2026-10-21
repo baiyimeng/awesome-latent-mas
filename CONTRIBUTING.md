@@ -25,7 +25,7 @@ Classify the **inference-time source of the communicated states**, not the title
 
 A method can have more than one variant. Give the paper one full entry under its primary described mechanism and explain the other variants in that entry. Count publications once. A prompt-plus-latent KV cache belongs with direct generation when the new latent positions are the defining contribution. Compressing existing input states alone remains context encoding.
 
-“KV”, “hidden”, “hybrid”, “heterogeneous”, “training-free”, “compression”, and “cache reuse” are attributes. Place domain-specific systems by their communication mechanism. When a primary source confirms a multi-agent latent interface but leaves its state-generation path unresolved, keep a concise entry directly under **Communication Methods** and state that limitation within the entry.
+“KV”, “hidden”, “hybrid”, “heterogeneous”, “training-free”, “compression”, and “cache reuse” are attributes. Place domain-specific systems by their communication mechanism.
 
 ## Add an entry
 

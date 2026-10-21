@@ -122,6 +122,11 @@ The sender follows a discrete generation process, but another agent consumes sta
   Aligns hidden states accompanying a sender’s decoded tokens into a receiver-compatible soft prefix using closed-form geometry and norm calibration.<br>
   <sub>Hidden → input embeddings · Same model · Training-free</sub>
 
+- **[CondenseFlow: Scalable Latent Space Collaboration via Semantic Compression for Multi-Agent Systems](https://aclanthology.org/2026.findings-acl.669/)** — **CondenseFlow**.<br>
+  `2026-07 (proceedings)` · [ACL 2026 Findings](https://aclanthology.org/2026.findings-acl.669/) · [Code](https://github.com/xxy33/condenseflow).<br>
+  Compresses inter-agent KV caches with learnable semantic probes. The [released generation wrapper](https://github.com/xxy33/condenseflow/blob/main/src/models/ltc_wrapper.py#L105-L127) produces discrete tokens before cache compression, so its communicated states follow a text-generation trajectory.<br>
+  <sub>KV compression · Trained probes</sub>
+
 - **[Latent-DARM: Bridging Discrete Diffusion And Autoregressive Models For Reasoning](https://arxiv.org/abs/2603.09184)** — **Latent-DARM**.<br>
   `2026-03-10` · ICLR 2026 LIT Workshop.<br>
   Passes the final hidden states of a discrete-diffusion planner to an autoregressive executor. These states arise from plan generation via denoising, rather than a continuous autoregressive latent loop.<br>
@@ -165,11 +170,6 @@ The sender constructs new continuous messages instead of first producing their d
   `2026-09-24` · arXiv.<br>
   Selects a task-relevant layer of latent KV continuation state using receiver trajectory distortion, reducing the state needed for downstream latent collaboration.<br>
   <sub>Key-layer KV · Training-free</sub>
-
-- **[CondenseFlow: Scalable Latent Space Collaboration via Semantic Compression for Multi-Agent Systems](https://aclanthology.org/2026.findings-acl.669/)** — **CondenseFlow**.<br>
-  `2026-07 (proceedings)` · [ACL 2026 Findings](https://aclanthology.org/2026.findings-acl.669/) · [Code](https://github.com/xxy33/condenseflow).<br>
-  Compresses accumulated KV from latent collaboration with learnable semantic probes, bounding the size of the message transferred between agents.<br>
-  <sub>KV compression · Trained probes</sub>
 
 - **[LaMAR: Latent Multi-agent Collaboration via KV-Cache Communication for Automated Program Repair](https://doi.org/10.1145/3832783.3837423)** — **LaMAR**.<br>
   `2026-06-18 (accepted)` · [ASE 2026 Research Papers](https://conf.researchr.org/details/ase-2026/ase-2026-research-track/127/LaMAR-Latent-Multi-agent-Collaboration-via-KV-Cache-Communication-for-Automated-Prog).<br>

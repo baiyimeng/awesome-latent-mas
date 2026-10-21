@@ -11,20 +11,19 @@ A curated collection of research on **latent reasoning and state-based communica
 - [Scope](#scope)
 - [Taxonomy](#taxonomy)
 - [Papers](#papers)
-  - [Context-Encoding State Transfer](#context-encoding-state-transfer)
-  - [Text-Generation State Transfer](#text-generation-state-transfer)
-  - [Direct Latent-Message Generation](#direct-latent-message-generation)
-- [Analysis and Safety](#analysis-and-safety)
-- [Application Studies](#application-studies)
+  - [Communication Methods](#communication-methods)
+    - [Context-Encoding State Transfer](#context-encoding-state-transfer)
+    - [Text-Generation State Transfer](#text-generation-state-transfer)
+    - [Direct Latent-Message Generation](#direct-latent-message-generation)
+  - [Analysis and Safety](#analysis-and-safety)
+  - [Application Studies](#application-studies)
 - [Related Lists](#related-lists)
 
 ## Scope
 
-A paper belongs here when it studies **multiple collaborating agents** and makes **substantive use of latent representations** in their reasoning or information exchange. Agents may share model weights; two-agent and one-way interactions are included. Latent communication may accompany text, and cross-agent reuse of text-derived KV is included with an explicit reuse label.
+This list covers **latent reasoning and state-based communication in LLM/VLM multi-agent systems**: agent-local continuous reasoning, cross-agent exchange of embeddings, activations and KV caches, and cross-agent state reuse. It also includes analysis, safety research and applications of these mechanisms.
 
-We exclude memory-focused methods, standalone single-agent latent reasoning, and multi-agent debate distilled into a single model without an online multi-agent mechanism. Ordinary hidden states inside a standard text-only MAS are not enough for inclusion. Analysis and safety papers qualify through the latent multi-agent mechanisms they investigate.
-
-Agent-local latent reasoning with text-only inter-agent messages is also in scope when evaluated in a genuine MAS. The communication papers below are grouped by the origin of the states that cross the agent boundary.
+Systems may use shared or heterogeneous models, two or more collaborating agents, and one-way or multi-round interaction. Agent-local latent reasoning can coexist with textual communication, and inter-agent messages may combine latent states with text.
 
 ## Taxonomy
 
@@ -52,7 +51,11 @@ Code links point to identified implementations. Unofficial or reference implemen
 
 ## Papers
 
-### Context-Encoding State Transfer
+### Communication Methods
+
+Communication methods are grouped by how the transmitted states are produced at inference time.
+
+#### Context-Encoding State Transfer
 
 The sender exposes representations formed while processing available context. This includes semantic transfer and shared-context computation reuse; neither requires a new intermediate reasoning message.
 
@@ -111,7 +114,7 @@ The sender exposes representations formed while processing available context. Th
   Reuses shared-context KV across model variants with selective layer recomputation; its MetaGPT evaluation demonstrates reuse in a coder–tester workflow. Published as *DroidSpeak: KV Cache Sharing Across Fine-tuned Model Variants*.<br>
   <sub>KV reuse · Same architecture, different weights</sub>
 
-### Text-Generation State Transfer
+#### Text-Generation State Transfer
 
 The sender follows a discrete generation process, but another agent consumes states associated with that process. This covers hidden-state messages, state-delta side channels, and decoding-to-prefill KV reuse. Discrete diffusion planning is labeled explicitly rather than treated as continuous latent rollout.
 
@@ -150,7 +153,7 @@ The sender follows a discrete generation process, but another agent consumes sta
   Augments a generated text message with token-wise hidden-state changes, exposing information from the sender’s discrete decoding trajectory.<br>
   <sub>Hidden-state deltas + text · Same model · Training-free</sub>
 
-### Direct Latent-Message Generation
+#### Direct Latent-Message Generation
 
 The sender constructs new continuous messages instead of first producing their discrete textual counterparts. This includes autoregressive hidden-state or soft-embedding rollout, compression of such trajectories, and parallel continuation-state writers.
 
@@ -211,9 +214,9 @@ The sender constructs new continuous messages instead of first producing their d
 
 **Also see [Interlat](https://arxiv.org/abs/2511.09149), Section 4:** its compressed sender generates continuous latent messages directly, while the base protocol is listed under text-generation state transfer. This is one paper with two variants, not two publications.
 
-## Analysis and Safety
+### Analysis and Safety
 
-Audits, interpretability and safety studies of latent multi-agent interaction. These papers are grouped by research purpose rather than assigned an invented message-generation mechanism.
+Audits, interpretability and safety studies of latent multi-agent interaction.
 
 - **[Safety of Latent Communication in Multi-Agent Systems](https://arxiv.org/abs/2609.39788)** — **Safety of Latent Communication**.<br>
   `2026-09-30` · arXiv · [Code](https://github.com/Muhammad-Huzaifaa/latent-safety).<br>
@@ -235,7 +238,7 @@ Audits, interpretability and safety studies of latent multi-agent interaction. T
   Uses controlled message substitutions to separate the effect of receiving a message, its example-specific content, and the contribution of another agent.<br>
   <sub>Causal audit</sub>
 
-## Application Studies
+### Application Studies
 
 The following system has a confirmed multi-agent latent interface, but its accessible conference description does not establish the state-generation path well enough to assign one of the three categories.
 

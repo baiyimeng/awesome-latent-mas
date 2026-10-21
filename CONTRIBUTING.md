@@ -6,14 +6,16 @@ Thank you for helping maintain Awesome Latent Multi-Agent Systems. Suggestions, 
 
 A submission must satisfy both conditions:
 
-1. **Multi-agent:** the paper designs, evaluates or analyzes a system with at least two collaborating logical agents. Shared model weights and one-way communication are allowed. Merely combining two models does not establish an agent workflow.
+1. **Multi-agent:** the paper designs, evaluates or analyzes a system with at least two collaborating logical agents. Shared model weights and one-way communication are allowed.
 2. **Latent:** continuous representations play a substantive role in reasoning or cross-agent information exchange. Examples include soft embeddings, hidden activations, Transformer KV caches and learned communication codes.
 
-Memory-focused methods, standalone single-agent reasoning, and debate distilled into one model without an online multi-agent mechanism are outside the list. Ordinary text-only MAS implementations do not qualify merely because their Transformers use hidden states internally. Agent-local latent reasoning can qualify when studied within an actual MAS; do not label it latent communication if only text crosses agent boundaries.
+Eligible mechanisms include agent-local continuous reasoning within a MAS, cross-agent exchange of internal representations, and cross-agent state reuse. Describe agent-local reasoning and inter-agent communication separately, according to where the latent states are used.
 
 Analysis, negative results and safety studies are welcome when they directly investigate latent multi-agent systems. Inclusion is not an endorsement of every claim or a claim of independent reproduction.
 
 ## Choose a category
+
+All papers sit under **Papers**. **Communication Methods** contains the three state-origin categories below; **Analysis and Safety** and **Application Studies** are sibling sections within Papers.
 
 Classify the **inference-time source of the communicated states**, not the title, carrier, training target, or claimed speedup:
 
